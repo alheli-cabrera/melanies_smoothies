@@ -53,10 +53,10 @@ if ingredients_list:
     #st.write(my_insert_stmt)
     #st.stop()
     time_to_insert = st.button('Submit order')
-  
-    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    st.text(smoothiefroot_response)
 
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
+      
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
